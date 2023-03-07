@@ -56,5 +56,5 @@ const UsuariosModel = connection.define('tbl_usuarios',
     }
 });
 
-//UsuariosModel.sync({force: true});
+UsuariosModel.sync({force: true});
 module.exports = UsuariosModel;

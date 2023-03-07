@@ -13,5 +13,5 @@ const UsuariosMedModel = connection.define('tbl_UsuariosMed',
     },
 }); 
 
-//UsuariosMedModel.sync({force: true});
+UsuariosMedModel.sync({force: true});
 module.exports = UsuariosMedModel;
