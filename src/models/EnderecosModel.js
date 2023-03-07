@@ -37,5 +37,5 @@ const EnderecosModel = connection.define ('tbl_Enderecos',
     }
 });
 
-//EnderecosModel.sync({force: true});
+EnderecosModel.sync({force: true});
 module.exports = EnderecosModel;

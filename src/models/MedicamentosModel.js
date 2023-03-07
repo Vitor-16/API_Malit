@@ -29,5 +29,5 @@ const MedicamentosModel = connection.define ('tbl_Medicamentos',
     }
 });
 
-//MedicamentosModel.sync({force: true});
+MedicamentosModel.sync({force: true});
 module.exports = MedicamentosModel;
