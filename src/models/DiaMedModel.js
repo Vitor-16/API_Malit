@@ -17,5 +17,5 @@ const DiaMedModel = connection.define('tbl_DiaMed',
     }
 });
 
-DiaMedModel.sync({force: true});
+//DiaMedModel.sync({force: true});
 module.exports = DiaMedModel;

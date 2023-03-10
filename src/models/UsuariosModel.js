@@ -1,6 +1,6 @@
 //IMPORTS
 const {Sequelize, DataTypes} = require('sequelize');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');   
 
 //CONEXÃO COM BD
 const connection = require('../config/connection');
@@ -31,7 +31,10 @@ const UsuariosModel = connection.define('tbl_usuarios',
     },
     dataNasc_Usuarios:{
         type: DataTypes.DATEONLY,
-        allowNull: false
+        allowNull: false,
+        validate:{
+            isDate: true
+        }
     },
     email_Usuarios:{
         type: DataTypes.STRING,
@@ -44,17 +47,15 @@ const UsuariosModel = connection.define('tbl_usuarios',
     senha_Usuarios:{
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            lens: [6, 20]
-        },
-        hooks:{
-            beforeCreate: async (usuarios) => {
-                const salt = await bcrypt.genSaltSync();
-                usuarios.senha = await bcrypt.hashSync(usuarios.senha, salt);
-            }
-        }
     }
 });
 
-UsuariosModel.sync({force: true});
+UsuariosModel.beforeSave(async (tbl_usuarios, options) => {
+    if (tbl_usuarios.changed('senha_Usuarios')) {
+      const salt = await bcrypt.genSalt(10);
+      tbl_usuarios.senha_Usuarios = await bcrypt.hash(tbl_usuarios.senha_Usuarios, salt);
+    }
+  });
+
+//UsuariosModel.sync({force: true});
 module.exports = UsuariosModel;

@@ -25,5 +25,5 @@ const   PedidosVendasModel = connection.define('tbl_PedidosVendas',
     }
 });
 
-PedidosVendasModel.sync({force: true});
+//PedidosVendasModel.sync({force: true});
 module.exports = PedidosVendasModel;
