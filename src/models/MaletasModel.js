@@ -13,5 +13,5 @@ const MaletasModel = connection.define('tbl_maletas',
     }
 });
 
-MaletasModel.sync({force: true});
+//MaletasModel.sync({force: true});
 module.exports = MaletasModel;

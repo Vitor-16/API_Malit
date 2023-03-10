@@ -17,5 +17,5 @@ const HoraMedModel = connection.define('tbl_HoraMed',
     }
 });
 
-HoraMedModel.sync({force: true});
+//HoraMedModel.sync({force: true});
 module.exports = HoraMedModel;
