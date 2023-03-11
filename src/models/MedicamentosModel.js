@@ -1,10 +1,10 @@
 //IMPORTS
-const {Sequelize, DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 //CONEXÃO COM BD
 const connection = require('../config/connection');
 
-const MedicamentosModel = connection.define ('tbl_Medicamentos',
+const MedicamentosModel = connection.define('tbl_Medicamentos',
 {
     id_Medicamentos: {
         type: DataTypes.INTEGER,

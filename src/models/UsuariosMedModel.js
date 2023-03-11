@@ -1,5 +1,5 @@
 //IMPORTS
-const {Sequelize, DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 //CONEXÃO COM BD
 const connection = require('../config/connection');
