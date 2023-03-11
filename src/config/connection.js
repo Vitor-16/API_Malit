@@ -1,4 +1,4 @@
-//ARQUIVO DE CONEXÃO DO BD, IMPORT DO SEQUELIZE E CRIAÇÃO DO BD COM DOTENV
+//ARQUIVO DE CONEXÃO DO BD, IMPORT DO SEQUELIZE E CRIAÇÃO DO BD 
 const Sequelize = require('sequelize');
 
 const connection = new Sequelize( 

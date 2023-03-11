@@ -1,9 +1,8 @@
-const express = require('express');
 const UsuariosModel = require('../models/UsuariosModel');
 
 const UsuariosController = {
     createUser: (req, res)=>{
-        const{nome_Usuarios, cpf_Usuarios, dataNasc_Usuarios, email_Usuarios, senha_Usuarios} = req.body
+        let{nome_Usuarios, cpf_Usuarios, dataNasc_Usuarios, email_Usuarios, senha_Usuarios} = req.body
         UsuariosModel.create(
             {nome_Usuarios, cpf_Usuarios, dataNasc_Usuarios, email_Usuarios, senha_Usuarios}
         )
@@ -11,7 +10,7 @@ const UsuariosController = {
             ()=>{
                     return res.status(201).json({
                         erroStatus:false,
-                        mensagemStatus:"PARABÉNS, CADASTRADO REALIZADO !!!."
+                        mensagemStatus:"PARABÉNS, CADASTRADO REALIZADO !!!"
                     });
             }
         )
@@ -29,7 +28,7 @@ const UsuariosController = {
         UsuariosModel.findAll()
         .then(
             (response)=>{
-                return res.status(201).json({
+                return res.status(200).json({
                     erroStatus:false,
                     mensagemStatus:"USUÁRIOS LISTADOS COM SUCESSO !!!",
                     data:response
@@ -47,7 +46,7 @@ const UsuariosController = {
         )
     },
     putUser:(req, res)=>{
-        const{nome_Usuarios, cpf_Usuarios, dataNasc_Usuarios, email_Usuarios, senha_Usuarios} = req.body;
+        let{nome_Usuarios, cpf_Usuarios, dataNasc_Usuarios, email_Usuarios, senha_Usuarios} = req.body;
         const{id_Usuarios} = req.params;
         UsuariosModel.update(
             {nome_Usuarios, cpf_Usuarios, dataNasc_Usuarios, email_Usuarios, senha_Usuarios},
@@ -55,7 +54,7 @@ const UsuariosController = {
         )
         .then(
             ()=>{
-                return res.status(201).json({
+                return res.status(200).json({
                     erroStatus:false,
                     mensagemStatus:"SEUS DADOS FORAM ATUALIZADOS COM SUCESSO !!!"
                 });
